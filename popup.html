@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dettect — Dashboard</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <header class="dettect-header">
+    <div class="dettect-logo">
+      <img src="icons/icon48.png" alt="Dettect" width="32" height="32" />
+      <div>
+        <h1>Dettect</h1>
+        <p>Detektor Bot &amp; Disinformasi</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- Banner status singkat -->
+  <section class="dettect-status">
+    <span id="statusDot" class="dettect-status-dot"></span>
+    <span id="statusText">Memantau X.com...</span>
+  </section>
+
+  <!-- Kartu statistik utama -->
+  <section class="dettect-stats">
+    <div class="dettect-card dettect-card-blue">
+      <div class="dettect-card-icon">👁️</div>
+      <div class="dettect-card-number" id="statScanned">0</div>
+      <div class="dettect-card-label">Tweet Dipindai</div>
+    </div>
+    <div class="dettect-card dettect-card-red">
+      <div class="dettect-card-icon">🚨</div>
+      <div class="dettect-card-number" id="statFlagged">0</div>
+      <div class="dettect-card-label">Ditandai</div>
+    </div>
+    <div class="dettect-card dettect-card-green">
+      <div class="dettect-card-icon">✅</div>
+      <div class="dettect-card-number" id="statSafe">0</div>
+      <div class="dettect-card-label">Aman</div>
+    </div>
+  </section>
+
+  <!-- Tombol aksi -->
+  <section class="dettect-actions">
+    <button id="btnDemo" class="dettect-btn dettect-btn-primary">
+      🎬 Aktifkan Demo Mode
+    </button>
+    <button id="btnReset" class="dettect-btn dettect-btn-secondary">
+      🔄 Reset Statistik
+    </button>
+  </section>
+
+  <!-- Daftar deteksi terbaru -->
+  <section class="dettect-recent">
+    <h2>🔍 Deteksi Terbaru</h2>
+    <div id="recentList" class="dettect-recent-list">
+      <p class="dettect-empty">Belum ada deteksi. Buka X.com lalu scroll, atau coba Demo Mode.</p>
+    </div>
+  </section>
+
+  <!-- Footer bantuan singkat -->
+  <footer class="dettect-footer">
+    <p>
+      <span class="dettect-legend dettect-legend-green">🟢 Aman</span>
+      <span class="dettect-legend dettect-legend-yellow">🟡 Curiga</span>
+      <span class="dettect-legend dettect-legend-red">🔴 Bot!</span>
+    </p>
+    <p class="dettect-footer-tip">Hover badge di tweet untuk lihat alasan.</p>
+  </footer>
+
+  <script src="popup.js"></script>
+</body>
+</html>

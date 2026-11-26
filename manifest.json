@@ -1,0 +1,43 @@
+{
+  "manifest_version": 3,
+  "name": "Dettect — Bot & Disinformasi Detector",
+  "version": "1.0.0",
+  "description": "Mendeteksi akun bot/buzzer dan disinformasi secara real-time di X (Twitter) menggunakan heuristik cerdas. Memberi tanda warna (hijau/kuning/merah) pada setiap tweet agar kamu tahu mana yang aman dan mana yang perlu diwaspadai.",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Dettect — Klik untuk lihat statistik",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://x.com/*",
+    "https://twitter.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://x.com/*",
+        "https://twitter.com/*"
+      ],
+      "js": ["content.js"],
+      "css": ["styles.css"],
+      "run_at": "document_idle"
+    }
+  ]
+}

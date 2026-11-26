@@ -1,0 +1,272 @@
+/* =================================================================
+   popup.css — Styling untuk dashboard popup Dettect
+   =================================================================
+   Filosofi UI:
+   - Modern, ramah orang awam, kontras tinggi
+   - Bahasa non-teknis, ikon besar, warna cerah
+   - Card-based layout dengan gradient halus
+   ================================================================= */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 340px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+               "Helvetica Neue", Arial, sans-serif;
+  background: #f8fafc;
+  color: #0f172a;
+  padding: 14px;
+}
+
+/* === Header === */
+.dettect-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+.dettect-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.dettect-logo img {
+  border-radius: 8px;
+}
+
+.dettect-logo h1 {
+  font-size: 18px;
+  font-weight: 800;
+  color: #1e293b;
+  letter-spacing: -0.3px;
+}
+
+.dettect-logo p {
+  font-size: 11px;
+  color: #64748b;
+  margin-top: 1px;
+}
+
+/* === Status banner === */
+.dettect-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: #eef2ff;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #3730a3;
+  margin-bottom: 12px;
+}
+
+.dettect-status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #22c55e;
+  animation: dettect-blink 1.6s ease-in-out infinite;
+}
+
+@keyframes dettect-blink {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.3; }
+}
+
+/* === Kartu statistik === */
+.dettect-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.dettect-card {
+  padding: 12px 6px;
+  border-radius: 12px;
+  text-align: center;
+  color: #ffffff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease;
+}
+
+.dettect-card:hover {
+  transform: translateY(-2px);
+}
+
+.dettect-card-blue   { background: linear-gradient(135deg, #3b82f6, #1d4ed8); }
+.dettect-card-red    { background: linear-gradient(135deg, #ef4444, #b91c1c); }
+.dettect-card-green  { background: linear-gradient(135deg, #22c55e, #15803d); }
+
+.dettect-card-icon {
+  font-size: 18px;
+  margin-bottom: 4px;
+}
+
+.dettect-card-number {
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.dettect-card-label {
+  font-size: 10px;
+  font-weight: 600;
+  margin-top: 4px;
+  opacity: 0.92;
+}
+
+/* === Tombol aksi === */
+.dettect-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.dettect-btn {
+  padding: 10px 8px;
+  font-size: 12px;
+  font-weight: 700;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.dettect-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.dettect-btn:active {
+  transform: translateY(0);
+}
+
+.dettect-btn-primary {
+  background: linear-gradient(135deg, #5865f2, #8b5cf6);
+  color: #ffffff;
+}
+
+.dettect-btn-secondary {
+  background: #f1f5f9;
+  color: #334155;
+  border: 1px solid #cbd5e1;
+}
+
+/* === Daftar deteksi terbaru === */
+.dettect-recent {
+  margin-bottom: 12px;
+}
+
+.dettect-recent h2 {
+  font-size: 13px;
+  font-weight: 700;
+  color: #334155;
+  margin-bottom: 8px;
+}
+
+.dettect-recent-list {
+  max-height: 180px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.dettect-recent-list::-webkit-scrollbar {
+  width: 4px;
+}
+
+.dettect-recent-list::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 2px;
+}
+
+.dettect-empty {
+  font-size: 12px;
+  color: #94a3b8;
+  text-align: center;
+  padding: 20px 8px;
+  font-style: italic;
+}
+
+.dettect-recent-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 8px 10px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  margin-bottom: 6px;
+}
+
+.dettect-recent-item .dettect-recent-emoji {
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.dettect-recent-item .dettect-recent-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.dettect-recent-item .dettect-recent-user {
+  font-size: 12px;
+  font-weight: 700;
+  color: #0f172a;
+  word-break: break-all;
+}
+
+.dettect-recent-item .dettect-recent-reason {
+  font-size: 11px;
+  color: #64748b;
+  margin-top: 2px;
+  line-height: 1.4;
+}
+
+.dettect-recent-item .dettect-recent-time {
+  font-size: 10px;
+  color: #94a3b8;
+  margin-top: 4px;
+}
+
+/* === Footer legenda === */
+.dettect-footer {
+  border-top: 1px solid #e2e8f0;
+  padding-top: 10px;
+  text-align: center;
+}
+
+.dettect-footer p {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.dettect-legend {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 999px;
+}
+
+.dettect-legend-green  { background: #dcfce7; color: #15803d; }
+.dettect-legend-yellow { background: #fef9c3; color: #a16207; }
+.dettect-legend-red    { background: #fee2e2; color: #b91c1c; }
+
+.dettect-footer-tip {
+  font-size: 10px;
+  color: #94a3b8;
+  margin-top: 6px;
+  font-style: italic;
+}
